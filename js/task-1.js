@@ -16,7 +16,7 @@
       return this.discount;
     },
     setDiscount(value) {
-      discount = value;
+      this.discount = value; //посилання на властивість
     },
     getOrders() {
       return this.orders;
