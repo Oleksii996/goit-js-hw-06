@@ -10,22 +10,27 @@
 // Візьми код нижче з ініціалізацією екземпляра й викликами методів і встав його після оголошення класу для перевірки коректності роботи. У консоль будуть виведені результати їх роботи. Будь ласка, нічого там не змінюй.
 {
   class Storage {
-    #items;
+    #items; //приватна!!!
 
     constructor(items) {
       this.#items = items;
-    }
+    } //конструктор роблю для передачі властивостей для нових обєктів у класі
 
     getItems() {
       return this.#items;
     }
 
-    addItem(newItem) {}
+    addItem(newItem) {
+      this.#items.push(newItem);
+    }
 
-    removeItem(itemToRemove) {}
+    removeItem(itemToRemove) {
+      this.#items = this.#items.filter(item => item !== itemToRemove); //аналогу для видалення як push немає, треба іти через filter
+    }
   }
 
   const storage = new Storage(['Nanitoids', 'Prolonger', 'Antigravitator']);
+
   console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
 
   storage.addItem('Droid');

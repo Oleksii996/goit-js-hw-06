@@ -11,12 +11,40 @@
 // Візьми код нижче з ініціалізацією екземпляра й викликами методів і встав його після оголошення класу для перевірки коректності роботи. У консоль будуть виведені результати їх роботи. Будь ласка, нічого там не змінюй.
 
 {
+  class StringBuilder {
+    #value; //приватна!!!
+
+    constructor(value) {
+      this.#value = value;
+    } //конструктор роблю для передачі властивостей для нових обєктів у класі
+
+    getValue() {
+      return this.#value;
+    }
+
+    padStart(str) {
+      return (this.#value = str + this.#value); //просто додаєм спочатку
+    }
+
+    padEnd(str) {
+      return (this.#value = this.#value + str); //просто додаєм в кінці
+    }
+
+    padBoth(str) {
+      return (this.#value = str + this.#value + str); //просто додаєм в з обох боків
+    }
+  }
+
   const builder = new StringBuilder('.');
+
   console.log(builder.getValue()); // "."
+
   builder.padStart('^');
   console.log(builder.getValue()); // "^."
+
   builder.padEnd('^');
   console.log(builder.getValue()); // "^.^"
+
   builder.padBoth('=');
   console.log(builder.getValue()); // "=^.^="
 }
